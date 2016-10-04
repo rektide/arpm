@@ -1,13 +1,13 @@
 # arpm
 **Asynchronous Requests Per Minute**
 
-An async generator that fires at a given ticks/minute speed. **arpm** 
+An [asynchronous iterator](https://github.com/tc39/proposal-async-iteration) that iterates at a given ticks/minute speed.
 
 `npm install arpm` will fetch this library/example.
 
 # Example
 
-`./arpm.js` is executable, and will count at a rate of 78/minute. That code is reproduced here:
+`./arpm.js` is executable, and will count at a rate of 78/minute. It's `main` code is reproduced here:
 
 ```
 var generate = require('most').generate
@@ -20,7 +20,11 @@ generate(arpm(rate)).observe(function () {
 })
 ```
 
-arpm.js can also be executed with a single numeric parameter, the request rate. `./arpm.js 200` will count 200 a minute, while `./arpm.js 33` would count 33 a minute.
+[Most](https://github.com/cujojs/most) is used to consume/iterate the asynchronous iterator here, however in future versions of JavaScript one could expect to be able to use the new async iteration language syntax to iteration (`for await(const n of arpm(rate)){}`).
+
+For example usage, `arpm.js` can also be executed with a single numeric parameter, the request rate:
+* `./arpm.js 200` will count 200 a minute,
+* while `./arpm.js 33` would count 33 a minute.
 
 # Explainer
 
