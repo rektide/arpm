@@ -1,0 +1,23 @@
+{
+  "name": "arpm",
+  "version": "1.0.0",
+  "description": "Rate limiting asynchronous generator.",
+  "main": "arpm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://archive.eldergods.com/arpm"
+  },
+  "keywords": ["rate-limiting", "rate-limit", "rate limiting", "rate limit", "rpm", "async-generators", "asynchronous generator"],
+  "author": "rektide de la faye",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "most": "^1.0.3",
+    "standard": "^8.3.0"
+  }
+}
