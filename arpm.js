@@ -28,6 +28,7 @@ function arpm (requestsPerMinute, opts) {
   var interval = opts && opts.interval || module.exports.defaults.interval
   var base = opts && opts.base || module.exports.defaults.base
   var paused = opts && opts.paused || false
+  var drain = opts && opts.drain || false
 
   /**
    * async-generator loop that either eats one credit,
@@ -117,6 +118,9 @@ function arpm (requestsPerMinute, opts) {
     arpm.play()
     // With credit available
     arpm.tick()
+  }
+  if (drain) {
+    arpm.drain = true
   }
 
   return arpm
