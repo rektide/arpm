@@ -77,6 +77,12 @@ function arpm (requestsPerMinute, opts) {
       arpm.waiting = null
       --arpm.credit
     }
+    // drain safely turns off the producer, once it becomes
+    // apparent that there is surplus credit.
+    if (arpm.drain && arpm.credit >= arpm.rate * 2) {
+      arpm.pause()
+      arpm.drain = false
+    }
   }
 
   var producer
